@@ -16,6 +16,21 @@ $(function () {
   });
 
   // add code to apply past, present, or future class to each time block by comparing id to current hour
+  function updateBlockClasses() {
+    const currentHour = dayjs().format('HH');
+    $('.time-block').each(function() {
+      const timeBlockHour = parseInt($(this).attr('id').split('-')[1]);
+      $(this).removeClass('past present future');
+
+      if (timeBlockHour < currentHour) {
+        $(this).addClass('past');
+      } else if (timeBlockHour == currentHour) {
+        $(this).addClass('present');
+      } else {
+        $(this).addClass('future');
+      };
+    });
+  };
 
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
