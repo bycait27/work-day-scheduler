@@ -15,22 +15,38 @@ $(function () {
     localStorage.setItem(timeBlockId, userInput);
   });
 
-  // add code to apply past, present, or future class to each time block by comparing id to current hour
-  function updateBlockClasses() {
-    const currentHour = dayjs().format('HH');
-    $('.time-block').each(function() {
-      const timeBlockHour = parseInt($(this).attr('id').split('-')[1]);
-      $(this).removeClass('past present future');
+  // display time-blocks for the hours between 9am and 5pm
+  function displayTimeBlocks() {
+    const currentHour = dayjs().format('H');
 
-      if (timeBlockHour < currentHour) {
-        $(this).addClass('past');
-      } else if (timeBlockHour == currentHour) {
-        $(this).addClass('present');
-      } else {
-        $(this).addClass('future');
-      };
-    });
-  };
+    for (let hour = 9; hour <= 17; hour++) {
+      let displayHour = hour;
+
+      if (hour > 12) {
+        displayHour -= 12;
+      }
+
+      timeBlockDiv = $('<div></div>').attr('id', 'hour-' + hour).addClass('row time-block');
+      let timeBlockContents = 
+      `<div class="col-2 col-md-1 hour text-center py-3">${hour >= 12 ? displayHour + ':00 PM' : displayHour + ':00 AM'}</div>
+      <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+      <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+      <i class="fas fa-save" aria-hidden="true"></i>
+      </button>`;
+
+      timeBlockDiv.append(timeBlockContents);
+      $('#timeBlockContainer').append(timeBlockDiv);
+
+      // add code to apply past, present, or future class to each time block by comparing id to current hour
+      if(currentHour > hour){  
+        timeBlockDiv.addClass('past');
+      }else if(currentHour == hour){
+        timeBlockDiv.addClass('present');
+      }else{
+        timeBlockDiv.addClass('future');
+      }
+    }
+  }
 
   // add code to get any user input that was saved in localStorage and set the values of the corresponding textarea elements
   function loadSavedUserInput() {
@@ -44,6 +60,6 @@ $(function () {
     });
   };
 
-  updateBlockClasses();
+  displayTimeBlocks();
   loadSavedUserInput();
 });
