@@ -26,7 +26,8 @@ $(function () {
         displayHour -= 12;
       }
 
-      timeBlockDiv = $('<div></div>').attr('id', 'hour-' + hour).addClass('row time-block');
+      // create divs for time-blocks
+      timeBlockDiv = $('<div></div>').attr('id', `hour-${hour}`).addClass('row time-block');
       let timeBlockContents = 
       `<div class="col-2 col-md-1 hour text-center py-3">${hour >= 12 ? displayHour + ':00 PM' : displayHour + ':00 AM'}</div>
       <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
@@ -34,6 +35,7 @@ $(function () {
       <i class="fas fa-save" aria-hidden="true"></i>
       </button>`;
 
+      // append the divs to the div container in index.html
       timeBlockDiv.append(timeBlockContents);
       $('#timeBlockContainer').append(timeBlockDiv);
 
