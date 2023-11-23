@@ -50,18 +50,34 @@ $(function () {
     }
   }
 
-  // add code to get any user input that was saved in localStorage and set the values of the corresponding textarea elements
-  function loadSavedUserInput() {
+  // event listener for click events on the save button
+  $('#timeBlockContainer').on('click', '.saveBtn', function() {
+    // time-block id is the key
+    const timeBlockId = $(this).closest('.time-block').attr('id');
+    // textarea value is the value
+    const userInput = $(this).siblings('.description').val();
+    // save this key value pair to local storage
+    localStorage.setItem(timeBlockId, userInput);
+  });
+
+  // function to handle saving user input when the save button is clicked
+  function saveUserInput() {
     $('.time-block').each(function() {
       const timeBlockId = $(this).attr('id');
       const savedInput = localStorage.getItem(timeBlockId);
 
       if (savedInput !== null) {
         $(this).find('.description').val(savedInput);
-      };
+      }
+
+      // event listener for change events on the textarea to save user input when they type
+      $(this).find('.description').on('input', function() {
+        const userInput = $(this).val();
+        localStorage.setItem(timeBlockId, userInput);
+      });
     });
   };
 
   displayTimeBlocks();
-  loadSavedUserInput();
+  saveUserInput();
 });
