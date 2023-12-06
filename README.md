@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a simple calendar application that allows the user to save events for each hour of a typical working day (9am-5pm). This app runs in the borwser and features dynamically updated HTML and CSS powered by JQuery.
+This is a simple calendar application that allows the user to save events for each hour of a typical working day (9am-5pm). This app runs in the borwser and features dynamically updated HTML and CSS powered by jQuery.
 
 This app also utilizes the Day.js library to display the appropriate date at the top of the calendar, as well track the present hour in order to change the color to coincide with the user's current time. 
 
@@ -26,6 +26,6 @@ The following animation demonstrates the application functionality:
 
 ## Credits
 
-[JQuery Documentation](https://api.jquery.com/)
+[jQuery Documentation](https://api.jquery.com/)
 
 [Day.js Documentation](https://day.js.org/docs/en/display/format)
