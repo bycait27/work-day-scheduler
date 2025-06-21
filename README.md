@@ -1,31 +1,118 @@
 # Work Day Scheduler
 
-## Description
-
-This is a simple calendar application that allows the user to save events for each hour of a typical working day (9am-5pm). This app runs in the borwser and features dynamically updated HTML and CSS powered by jQuery.
-
-This app also utilizes the Day.js library to display the appropriate date at the top of the calendar, as well track the present hour in order to change the color to coincide with the user's current time. 
+A dynamic, browser-based calendar application for planning and organizing your workday schedule with real-time tracking and persistent event storage.
 
 ## Table of Contents
 
+- [Overview](#overview)
+- [Features](#features)
+- [Live Demo](#live-demo)
+- [Technology Stack](#technology-stack)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
+- [Contact](#contact)
+
+## Overview
+
+Work Day Scheduler is a single-page application that helps users manage their daily work schedule from 9 AM to 5 PM. Built with jQuery and Day.js, the application features color-coded time blocks that automatically update to reflect past, present, and future hours, making it easy to visualize your day at a glance. 
+
+## Features 
+
+- **Real-Time Display:** Shows current date and dynamically updates time block colors 
+- **Color-Coded Time Blocks:**
+  - **🔘 Gray:** Past hours (completed)
+  - **🔴 Red:** Current hour (happening now)
+  - **🟢 Green:** Future hours (upcoming)
+- **Event Management:** Add, edit, and save events for each hour 
+- **Persistent Storage:** All events automatically save to browser's local storage 
+- **Responsive Design:** Works seamlessly across desktop and mobile devices 
+- **Intuitive Interface:** Clean, professional layout with easy-to-use controls
+
+## Live Demo
+
+[🌐 View Live Application](https://bycait27.github.io/work-day-scheduler/)
+
+## Technology Stack 
+
+**Front-end:**
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- jQuery 3.4.1
+- Bootstrap 5.1.3
+
+**Libraries:**
+- Day.js (Date manipulation and formatting)
+- Font Awesome (Icons)
+- Google Fonts (Open Sans typography)
+
+**Storage:**
+- Browser Local Storage API
 
 ## Installation 
 
-You can view and use the app via the deployed GitHub link. 
+### Option 1: Online (Recommended) 
 
-[Work Day Scheduler](https://bycait27.github.io/work-day-scheduler/)
+Simply visit the [live demo link](https://bycait27.github.io/work-day-scheduler/) to start using the application immediately.
+
+### Option 2: Local Development 
+
+1. Clone the repository:
+
+```bash 
+git clone git@github.com:bycait27/work-day-scheduler.git 
+cd work-day-scheduler 
+```
+
+2. Open in browser:
+
+```bash
+# open index.html in your preferred browser 
+open index.html 
+```
 
 ## Usage
 
-The following animation demonstrates the application functionality:
+### Getting Started 
+
+1. Open the application in your web browser 
+2. The current date will be displayed at the top 
+3. Time blocks for 9 AM-5 PM are automatically generated 
+
+### Managing Events 
+
+**Adding an Event:**  
+1. Click in the text area for any time slot 
+2. Type your event description 
+3. Click the **save button (💾)** or the text will auto-save as you type
+
+**Editing an Event:**  
+1. Click in the text area containing the event  
+2. Modify the text as needed 
+3. Changes are automatically saved  
+
+**Understanding Time Colors:**  
+- **Gray Blocks:**  Hours that have already passed  
+- **Red Blocks:**  The current hour    
+- **Green Blocks:**  Upcoming hours 
+
+### Data Persistence
+
+- All events are automatically saved to your browser's local storage 
+- Events persist between browser sessions 
+- Data remains available even after closing and reopening the browser 
+
+---
+
+**The following animation demonstrates the application functionality:**
 
 ![Demonstration of the Work Day Scheduler App being used](./assets/images/05-third-party-apis-homework-demo.gif)
 
-## Credits
+## Contact
 
-[jQuery Documentation](https://api.jquery.com/)
+**GitHub:** [@bycait27](https://github.com/bycait27)  
+**Portfolio Website:** [caitlinash.io](https://caitlinash.io/)  
+**LinkedIn:** [Caitlin Ash](https://www.linkedin.com/in/caitlin-ash/)  
 
-[Day.js Documentation](https://day.js.org/docs/en/display/format)
+---
+*This project was originally created as part of my Full-Stack Developer Bootcamp program.*
